@@ -45,6 +45,12 @@ const routes = [
         path: "dashboard/basic-dashboard",
         component: () => import("@/views/dashboard/BasicDashboard"),
       },
+
+      {
+        name: "Configuracoes",
+        path: "pages/configuracoes",
+        component: () => import("@/views/pages/Configuracoes"),
+      }
     ],
   },
 ];

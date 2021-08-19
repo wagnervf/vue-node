@@ -100,6 +100,11 @@ export default {
         to: "/pages/tables-simple",
       },
       {
+              title: "Configurações",
+        icon: "mdi-cog",
+        to: "/pages/configuracoes",
+      },
+      {
         title: "Sair do Sistema",
         icon: "mdi-logout",
         to: "/login",

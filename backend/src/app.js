@@ -27,9 +27,11 @@ const index = require('./routes/index');
 const userRoutes = require('./routes/user.routes');
 const eventoRoutes = require('./routes/evento.routes');
 
+
 app.use(index);
 app.use('/api/v1', userRoutes);
 app.use('/api/v1/evento', eventoRoutes);
+app.use('/api/v1/simulacao', require('./routes/simulacao.routes'));
 
 //Exportando o app
 module.exports = app;
