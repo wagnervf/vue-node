@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app clipped-left clipped-right color="primary" dark>
+  <v-app-bar app  color="primary" dark>
     <v-toolbar-title class="align-center d-flex">
       <span class="logo-icon">
       <v-icon>mdi-cogs</v-icon>

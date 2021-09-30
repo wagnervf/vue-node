@@ -1,7 +1,7 @@
 <template>
-  <v-container class="fill-height" fluid>
-    <v-row align="center" justify="center" class="align-center">
-      <v-col cols="12" sm="8" md="4">
+  <v-container class="blue-grey" fluid>
+    <v-row align="center" justify="center" class="align-center full-width">
+      <v-col cols="12" sm="8" md="4" >
         <v-card class="elevation-6 align-center">
           <v-toolbar light flat>
             <v-spacer></v-spacer>
@@ -132,3 +132,4 @@
 </template>
 
 <script src="./Login.js"></script>
+

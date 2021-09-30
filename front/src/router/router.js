@@ -16,16 +16,12 @@ const routes = [
     children: [
       // Components
 
-      {
-        name: "Relatórios",
-        path: "pages/chart",
-        component: () => import("@/views/pages/Chart"),
-      },
+      
 
       {
-        name: "Alerts",
-        path: "pages/alerts",
-        component: () => import("@/views/pages/Alerts"),
+        name: "Usuarios",
+        path: "Usuarios/Usuarios",
+        component: () => import("@/views/Usuarios/Usuarios"),
       },
 
       {
@@ -36,8 +32,8 @@ const routes = [
 
       {
         name: "TableSimple",
-        path: "pages/tables-simple",
-        component: () => import("@/views/pages/TableSimple"),
+        path: "Parametros/parametros-view",
+        component: () => import("@/views/Parametros/ParametrosView"),
       },
 
       {

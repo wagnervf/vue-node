@@ -1,16 +1,39 @@
 <template>
+
   <v-navigation-drawer
     v-model="Sidebar_drawer"
     :dark="SidebarColor !== 'white'"
     :color="SidebarColor"
     mobile-break-point="960"
-    clipped
     :mini-variant.sync="mini"
     permanent
     app
     id="main-sidebar"
+
   >
-    <v-list-item class="px-2">
+  <v-system-bar></v-system-bar>
+      <v-list>
+        <v-list-item>
+          <v-list-item-avatar>
+            <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+          </v-list-item-avatar>
+        </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-content>
+            <v-list-item-title class="text-h6">
+              John Leider
+            </v-list-item-title>
+            <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
+          </v-list-item-content>
+
+          <v-list-item-action>
+            <v-icon>mdi-menu-down</v-icon>
+          </v-list-item-action>
+        </v-list-item>
+      </v-list>
+
+    <!-- <v-list-item class="px-2">
       <v-list-item-avatar>
         <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
       </v-list-item-avatar>
@@ -20,7 +43,7 @@
       <v-btn icon @click.stop="mini = !mini">
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
-    </v-list-item>
+    </v-list-item> -->
 
     <v-divider></v-divider>
 
@@ -69,7 +92,7 @@ export default {
   },
   data: () => ({
     drawer: true,
-    mini: true,
+    mini: false,
     items: [
       {
         title: "Início",
@@ -77,9 +100,16 @@ export default {
         to: "/dashboard/basic-dashboard",
       },
       {
-        title: "Relatórios",
-        icon: "mdi-chart-areaspline",
-        to: "/pages/chart",
+        title: "Parâmetros Cria Certo",
+        icon: "mdi-database",
+        to: "/Parametros/parametros-view",
+      },     
+
+      
+      {
+        title: "Usuários",
+        icon: "mdi-account-multiple",
+        to: "/Usuarios/usuarios",
       },
 
       {
@@ -88,19 +118,9 @@ export default {
         to: "/pages/profile",
       },
 
+      
       {
-        title: "Informações",
-        icon: "mdi-alert",
-        to: "/pages/alerts",
-      },
-
-      {
-        title: "Parâmetros do Sistema",
-        icon: "mdi-table-check",
-        to: "/pages/tables-simple",
-      },
-      {
-              title: "Configurações",
+        title: "Configurações",
         icon: "mdi-cog",
         to: "/pages/configuracoes",
       },
