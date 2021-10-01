@@ -14,6 +14,7 @@ mongoose.Promise = global.Promise;
 // ==> Conexão com o banco de dados
 mongoose.connect(database.local.localDataBaseUrl,
   {
+  
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
