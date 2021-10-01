@@ -44,8 +44,8 @@ const routes = [
 
       {
         name: "Configuracoes",
-        path: "pages/configuracoes",
-        component: () => import("@/views/pages/Configuracoes"),
+        path: "pages/Configuracoes/configuracoes",
+        component: () => import("@/views/pages/Configuracoes/Configuracoes"),
       }
     ],
   },

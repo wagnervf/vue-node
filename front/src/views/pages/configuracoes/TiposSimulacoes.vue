@@ -165,9 +165,11 @@ export default {
     },
 
     getTipos() {
-      TiposSimulacoesServices.getTiposSimulacoes().then((resposta) => {
-        this.desserts = this.mapedMenu(resposta.tipos);
-        console.log(resposta.tipos);
+      TiposSimulacoesServices.getContractsMontaNatural().then((resposta) => {
+     // TiposSimulacoesServices.getTiposSimulacoes().then((resposta) => {
+        console.log(resposta);
+        //this.desserts = this.mapedMenu(resposta.tipos);
+        //console.log(resposta.tipos);
       });
     },
 

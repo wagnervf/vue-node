@@ -122,7 +122,7 @@ export default {
       {
         title: "Configurações",
         icon: "mdi-cog",
-        to: "/pages/configuracoes",
+        to: "/pages/Configuracoes/configuracoes",
       },
       {
         title: "Sair do Sistema",

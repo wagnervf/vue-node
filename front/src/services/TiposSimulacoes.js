@@ -21,6 +21,25 @@ export default {
     }
   },
 
+  async getContractsMontaNatural() {
+    try {
+      const response = await Api().get("/contracts/find");
+
+      if (response) {
+        console.log(response.data);
+      }
+
+      return response.data;
+    } catch (error) {
+      swal({
+        title: "Oops!",
+        text: "Alguma coisa deu errado aqui!",
+        icon: "error",
+      });
+      this.$router.push("/");
+    }
+  },
+
   //  storeMenuApi: (dados) => {
   //   return httpAxios
   //     .post("menu/", dados, {
