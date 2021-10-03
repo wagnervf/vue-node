@@ -1,21 +1,23 @@
 <template>
-  <v-app-bar app  color="primary" dark>
+  <v-app-bar
+    app
+    clipped-left
+    clipped-right
+    max-height="40"
+    height="40"
+    color="teal"
+    dark
+  >
     <v-toolbar-title class="align-center d-flex">
       <span class="logo-icon">
-      <v-icon>mdi-cogs</v-icon>
+        <v-icon>mdi-cogs</v-icon>
         Cria Certo
       </span>
-      <span class="font-weight-bold text-md ml-2">
-        Manager
-      </span>
+      <span  class="font-weight-bold text-md ml-2"> Manager </span>
     </v-toolbar-title>
-  <!---  <v-app-bar-nav-icon
-      class="d-block d-md-none"      
-      @click="$vuetify.breakpoint.smAndDown ? setSidebarDrawer(!Sidebar_drawer) : $emit('input', !value)" >
-      </v-app-bar-nav-icon>
-    <v-spacer /> -->
+
     <v-spacer />
-    <!---right part -->
+
     <v-menu bottom left transition="scale-transition">
       <template v-slot:activator="{ on }">
         <v-btn dark icon v-on="on">
@@ -42,8 +44,8 @@ export default {
   props: {
     value: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data: () => ({
     userprofile: [
@@ -51,21 +53,21 @@ export default {
       { title: "Meus Relátorios" },
       { title: "Mensagens" },
       { title: "Configurações" },
-      { title: "Sair" }
+      { title: "Sair" },
     ],
     href() {
       return undefined;
-    }
+    },
   }),
 
   computed: {
-    ...mapState(["Sidebar_drawer"])
+    ...mapState(["Sidebar_drawer"]),
   },
 
   methods: {
     ...mapMutations({
-      setSidebarDrawer: "SET_SIDEBAR_DRAWER"
-    })
-  }
+      setSidebarDrawer: "SET_SIDEBAR_DRAWER",
+    }),
+  },
 };
 </script>

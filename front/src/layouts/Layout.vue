@@ -1,14 +1,18 @@
 <template>
   <v-app id="inspire">
-    <Header v-model="expandOnHover"></Header>
-    <Sidebar :expand-on-hover.sync="expandOnHover"></Sidebar>
+    <Header ></Header>
+    <Sidebar ></Sidebar>
     <v-content>
-      <v-container class="fill-height" fluid>
+      <v-breadcrumbs
+      :items="items"
+      divider="/"
+      class="grey lighten-5"
+      
+    ></v-breadcrumbs>
+      <v-container class="fill-height grey lighten-5" fluid>
         <router-view />
       </v-container>
     </v-content>
-
-   
   </v-app>
 </template>
 
@@ -30,7 +34,24 @@ export default {
     source: String
   },
   data: () => ({
-    expandOnHover: false
+    expandOnHover: false,
+     items: [
+        {
+          text: 'Dashboard',
+          disabled: false,
+          href: 'breadcrumbs_dashboard',
+        },
+        {
+          text: 'Link 1',
+          disabled: false,
+          href: 'breadcrumbs_link_1',
+        },
+        {
+          text: 'Link 2',
+          disabled: true,
+          href: 'breadcrumbs_link_2',
+        },
+      ],
   }),
   computed: {
     ...mapState(["Customizer_drawer"])

@@ -1,49 +1,38 @@
 <template>
+    <!-- :color="SidebarColor" -->
 
   <v-navigation-drawer
     v-model="Sidebar_drawer"
-    :dark="SidebarColor !== 'white'"
-    :color="SidebarColor"
     mobile-break-point="960"
     :mini-variant.sync="mini"
-    permanent
+    color="grey lighten-3"
+    width="230"
     app
+    clipped
+    permanent
+    elevation-10
+    dense
     id="main-sidebar"
-
   >
-  <v-system-bar></v-system-bar>
-      <v-list>
-        <v-list-item>
-          <v-list-item-avatar>
-            <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
-          </v-list-item-avatar>
-        </v-list-item>
+    <!-- <v-list>
+      <v-list-item>
+        <v-app-bar-nav-icon @click.stop="mini = !mini"></v-app-bar-nav-icon>
+        
+      </v-list-item>
+    </v-list> -->
+    <v-spacer />
 
-        <v-list-item link>
-          <v-list-item-content>
-            <v-list-item-title class="text-h6">
-              John Leider
-            </v-list-item-title>
-            <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
-          </v-list-item-content>
+    <v-list >
+      <v-list-item link>
+          <v-list-item-icon> <v-app-bar-nav-icon @click.stop="mini = !mini"></v-app-bar-nav-icon></v-list-item-icon>
+         
+        <v-list-item-content class="mx-3">
+          <v-list-item-title class="text-h6"> John Leider </v-list-item-title>
+          <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
+        </v-list-item-content>  
+      </v-list-item>
+    </v-list>
 
-          <v-list-item-action>
-            <v-icon>mdi-menu-down</v-icon>
-          </v-list-item-action>
-        </v-list-item>
-      </v-list>
-
-    <!-- <v-list-item class="px-2">
-      <v-list-item-avatar>
-        <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
-      </v-list-item-avatar>
-
-      <v-list-item-title>Fulano de Tal</v-list-item-title>
-
-      <v-btn icon @click.stop="mini = !mini">
-        <v-icon>mdi-chevron-left</v-icon>
-      </v-btn>
-    </v-list-item> -->
 
     <v-divider></v-divider>
 
@@ -52,8 +41,9 @@
         v-for="item in items"
         :key="item.title"
         :to="item.to"
-        :active-class="`primary white--text`"
+        :active-class="`teal white--text`"
         link
+        dense
       >
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
@@ -70,7 +60,7 @@
         <v-spacer></v-spacer>
         <v-divider></v-divider>
         <v-list-item-title>
-          <span style="font-size: 10px;" class="text-center wrap">
+          <span style="font-size: 10px" class="text-center wrap">
             Cria Certo Manager&copy; {{ new Date().getFullYear() }}
           </span>
         </v-list-item-title>
@@ -103,9 +93,8 @@ export default {
         title: "Parâmetros Cria Certo",
         icon: "mdi-database",
         to: "/Parametros/parametros-view",
-      },     
+      },
 
-      
       {
         title: "Usuários",
         icon: "mdi-account-multiple",
@@ -118,7 +107,6 @@ export default {
         to: "/pages/profile",
       },
 
-      
       {
         title: "Configurações",
         icon: "mdi-cog",
