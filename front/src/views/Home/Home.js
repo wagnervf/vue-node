@@ -6,6 +6,9 @@ export default {
   name: "HomeComponent",
   data() {
     return {
+      email: '',
+      lastname: '',
+      firstname: '',
       checkbox1: true,
       checkbox2: false,
       user: {},
@@ -28,9 +31,9 @@ export default {
   },
   methods: {
     getUser() {
-      let token = localStorage.getItem("jwt");
-      let tokenDecoded = VueJwtDecode.decode(token);
-      this.user = tokenDecoded;
+    //  let token = localStorage.getItem("jwt");
+    //  let tokenDecoded = VueJwtDecode.decode(token);
+     // this.user = tokenDecoded;
     },
     logOutUser() {
       localStorage.removeItem("jwt");

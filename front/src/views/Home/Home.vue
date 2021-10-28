@@ -1,6 +1,6 @@
 <template>
-  <v-container class="grey lighten-5" fluid>
-    <v-row>
+  <v-container class="white" fluid>
+    <v-row class="elevation-3">
     <v-col cols="12">
       <v-row>
         <v-col cols="4">
@@ -44,7 +44,7 @@
 
 
       <v-row>
-      <v-form v-model="valid">
+      <v-form >
     <v-container>
       <v-row>
         <v-col

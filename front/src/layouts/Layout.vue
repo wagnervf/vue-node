@@ -2,16 +2,9 @@
   <v-app id="inspire">
     <Header></Header>
     <Sidebar></Sidebar>
-    <v-content >
-      <!-- <v-breadcrumbs
-      :items="items"
-      divider="/"
-      class="grey lighten-5"
-      
-    ></v-breadcrumbs> -->
-
+    <v-main class="grey lighten-3 pa-4">   
       <router-view />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
@@ -32,24 +25,7 @@ export default {
     source: String,
   },
   data: () => ({
-    expandOnHover: false,
-    items: [
-      {
-        text: "Dashboard",
-        disabled: false,
-        href: "breadcrumbs_dashboard",
-      },
-      {
-        text: "Link 1",
-        disabled: false,
-        href: "breadcrumbs_link_1",
-      },
-      {
-        text: "Link 2",
-        disabled: true,
-        href: "breadcrumbs_link_2",
-      },
-    ],
+   
   }),
   computed: {
     ...mapState(["Customizer_drawer"]),

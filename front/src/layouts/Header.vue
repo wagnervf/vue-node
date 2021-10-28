@@ -7,8 +7,7 @@
     height="60"
     color="teal lighten-1"
     dark
-    elevation-10
-    class="elevation-10"
+     
   >
     <v-toolbar-title class="align-center d-flex ">
       <span class="logo-icon">
@@ -37,7 +36,7 @@
 </template>
 <script>
 // Utilities
-import { mapState, mapMutations } from "vuex";
+//import { mapState, mapMutations } from "vuex";
 export default {
   name: "Header",
 
@@ -62,14 +61,14 @@ export default {
     },
   }),
 
-  computed: {
-    ...mapState(["Sidebar_drawer"]),
-  },
+  // computed: {
+  //   ...mapState(["Sidebar_drawer"]),
+  // },
 
-  methods: {
-    ...mapMutations({
-      setSidebarDrawer: "SET_SIDEBAR_DRAWER",
-    }),
-  },
+  // methods: {
+  //   ...mapMutations({
+  //     setSidebarDrawer: "SET_SIDEBAR_DRAWER",
+  //   }),
+  // },
 };
 </script>

@@ -11,7 +11,7 @@ const routes = [
   },
   {
     path: "/",
-    redirect: "dashboard/basic-dashboard",
+    redirect: "Home/home",
     component: () => import("@/layouts/Layout"),
     children: [
       // Components
