@@ -1,113 +1,147 @@
 <template>
-<div>
-  <v-data-table
-    :headers="headers"
-    :items="desserts"
-    sort-by="ativo"
-    class="elevation-1"
-    :search="search"
-  >
-    <template v-slot:top>
-      <v-toolbar flat>
-        <v-toolbar-title>Tipos de Simulações</v-toolbar-title>
-        <v-divider class="mx-4" inset vertical></v-divider>
+  <div>
+    <div>
+      <v-breadcrumbs :items="items" divider="-"></v-breadcrumbs>
+    </div>
 
-        <v-col cols="12" sm="4" md="4">
-          <v-text-field
-            hide-details
-            label="Filtrar"
-            single-line
-            v-model="search"
-          ></v-text-field>
-        </v-col>
+    <v-data-table
+      :headers="headers"
+      :items="desserts"
+      sort-by="ativo"
+      class="elevation-4 col-12"
+      :search="search"
+    >
+      <template v-slot:header.descricao="{ header }">
+    <span class="text-h6">  {{ header.text }}</span>
+      </template>
 
-        <v-spacer></v-spacer>
-        <v-dialog v-model="dialog" max-width="500px">
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-              Adicionar Item
-            </v-btn>
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="text-h5">{{ formTitle }}</span>
-            </v-card-title>
+<template v-slot:header.ativo="{ header }">
+    <span class="text-h6">  {{ header.text }}</span>
+      </template>
+      <template v-slot:header.actions="{ header }">
+    <span class="text-h6">  {{ header.text }}</span>
+      </template>
+      <template v-slot:item.ativo="{ item }">
+        <v-chip :color="getColor(item.ativo)" dark>
+          {{ item.ativo }}
+        </v-chip>
+      </template>
+      <template v-slot:top>
+        <div class="mb-4">
+          <v-row class="ma-1">
+            <v-col cols="12" class="grey lighten-3 pa-3">
+              <h2>Tipos de Simulações</h2>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col class="px-6 py-4">
+              <v-text-field
+                hide-details
+                label="Filtrar"
+                single-line
+                v-model="search"
+              ></v-text-field>
+            </v-col>
+            <v-spacer></v-spacer>
+            <v-col class="px-6 py-4" cols="3" justify="end">
+              <v-dialog v-model="dialog" max-width="500px">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    color="teal"
+                    dark
+                    class="ma-2 mt-4"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    <v-icon left>mdi-plus</v-icon>
+                    Adicionar Item
+                  </v-btn>
+                </template>
+                <v-card>
+                  <v-card-title>
+                    <span class="text-h5">{{ formTitle }}</span>
+                  </v-card-title>
 
-            <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col cols="8">
-                    <v-text-field
-                      v-model="editedItem.descricao"
-                      label="Descricao"
-                      outlined
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="4">
-                    <v-switch
-                      v-model="editedItem.ativo"
-                      label="Ativo"
-                    ></v-switch>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-card-text>
+                  <v-card-text>
+                    <v-container>
+                      <v-row>
+                        <v-col cols="8">
+                          <v-text-field
+                            v-model="editedItem.descricao"
+                            label="Descricao"
+                            outlined
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="4">
+                          <v-switch
+                            v-model="editedItem.ativo"
+                            label="Ativo"
+                          ></v-switch>
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                  </v-card-text>
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="close">
-                Cancelar
-              </v-btn>
-              <v-btn color="blue darken-1" text @click="save">
-                Salvar
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="text-h5"
-              >Você tem certeza que deseja remover esse item?</v-card-title
-            >
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete"
-                >Cancelar</v-btn
-              >
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm"
-                >Salvar</v-btn
-              >
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </v-toolbar>
-    </template>
-    <template v-slot:item.actions="{ item }">
-      <v-icon small class="mr-2" @click="editItem(item)">
-        mdi-pencil
-      </v-icon>
-      <v-icon small @click="deleteItem(item)">
-        mdi-delete
-      </v-icon>
-    </template>
-    <template v-slot:no-data>
-      <v-btn color="primary" @click="initialize">
-        Reset
-      </v-btn>
-    </template>
-  </v-data-table>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue darken-1" text @click="close">
+                      Cancelar
+                    </v-btn>
+                    <v-btn color="blue darken-1" text @click="save">
+                      Salvar
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
 
-  <v-snackbar v-model="snackbar" :timeout="timeout">
-    {{ textSnackbar }}
+              <v-dialog v-model="dialogDelete" max-width="500px">
+                <v-card>
+                  <v-card-title class="text-h5"
+                    >Você tem certeza que deseja remover esse
+                    item?</v-card-title
+                  >
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue darken-1" text @click="closeDelete"
+                      >Cancelar</v-btn
+                    >
+                    <v-btn color="blue darken-1" text @click="deleteItemConfirm"
+                      >Salvar</v-btn
+                    >
+                    <v-spacer></v-spacer>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </v-col>
+          </v-row>
+        </div>
+      </template>
 
-    <template v-slot:action="{ attrs }">
-      <v-btn color="blue" text v-bind="attrs" @click="snackbar = false">
-        Close
-      </v-btn>
-    </template>
-  </v-snackbar>
-</div>
+      <template v-slot:item.actions="{ item }">
+        <v-btn fab dark small color="primary mr-1" @click="editItem(item)">
+          <v-icon> mdi-pencil </v-icon>
+        </v-btn>
+        <v-btn fab dark small color="red mr-1" @click="deleteItem(item)">
+          <v-icon> mdi-delete </v-icon>
+        </v-btn>
+
+
+      </template>
+      <template v-slot:no-data>
+        <v-btn color="primary" @click="initialize"> Reset </v-btn>
+      </template>
+    </v-data-table>
+
+    <v-snackbar v-model="snackbar" :timeout="timeout">
+      {{ textSnackbar }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn color="blue" text v-bind="attrs" @click="snackbar = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+  </div>
 </template>
 
 <script>
@@ -138,6 +172,23 @@ export default {
       descricao: "",
       ativo: true,
     },
+    items: [
+      {
+        text: "Dashboard",
+        disabled: false,
+        href: "breadcrumbs_dashboard",
+      },
+      {
+        text: "Link 1",
+        disabled: false,
+        href: "breadcrumbs_link_1",
+      },
+      {
+        text: "Link 2",
+        disabled: true,
+        href: "breadcrumbs_link_2",
+      },
+    ],
   }),
 
   computed: {
@@ -163,13 +214,17 @@ export default {
     initialize() {
       this.getTipos();
     },
+    getColor(value) {
+      if (value) return "teal";
+      else return "red";
+    },
 
     getTipos() {
-      TiposSimulacoesServices.getContractsMontaNatural().then((resposta) => {
-     // TiposSimulacoesServices.getTiposSimulacoes().then((resposta) => {
+      //  TiposSimulacoesServices.getContractsMontaNatural().then((resposta) => {
+      TiposSimulacoesServices.getTiposSimulacoes().then((resposta) => {
         console.log(resposta);
-        //this.desserts = this.mapedMenu(resposta.tipos);
-        //console.log(resposta.tipos);
+        this.desserts = this.mapedMenu(resposta.tipos);
+        console.log(resposta.tipos);
       });
     },
 

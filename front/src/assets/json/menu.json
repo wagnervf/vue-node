@@ -1,0 +1,48 @@
+
+      [
+        {
+        "title": "Início",
+        "icon": "mdi-home",
+        "to": "/Home/home"
+      },
+       
+      {
+        "title": "Parâmetros Cria Certo",
+        "icon": "mdi-database",
+        "items": [
+          {
+            "title": "Simulações",
+            "icon": "mdi-note-text",
+            "to": "/Configuracoes/configuracoes"
+          },
+          {
+            "title": "Vários",
+            "icon": "mdi-view-module",
+            "to": "/Parametros/parametros"
+          },
+          {
+            "title": "Test2",
+            "icon": "mdi-chart-bubble",
+            "to": "/test2"
+          }
+        ]
+      },
+     
+
+      {
+        "title": "Configurações",
+        "icon": "mdi-cog",
+        "items": [
+          {
+            "title": "Usuários",
+            "icon": "mdi-account-multiple",
+            "to": "/Usuarios/usuarios"
+          },
+          {
+        "title": "Meu Perfil",
+        "icon": "mdi-account",
+        "to": "/Usuarios/profile"
+      }
+        ]
+      }
+    ]

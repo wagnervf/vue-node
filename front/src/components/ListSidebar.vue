@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-list dense nav >
+    <v-list dense nav>
       <template v-for="item in items">
         <v-list-group
           :key="item.title"
@@ -76,68 +76,11 @@
 </template>
 
 <script>
+import Menu from "../assets/json/menu.json";
+
 export default {
   data: () => ({
-    items: [
-      {
-        title: "Início",
-        icon: "mdi-home",
-        to: "/Home/home",
-      },
-       
-      {
-        title: "Parâmetros Cria Certo",
-        icon: "mdi-database",
-        items: [
-          {
-            title: "Simulações",
-            icon: "mdi-cog",
-            to: "/Configuracoes/configuracoes",
-          },
-          {
-            title: "Test2",
-            icon: "mdi-chart-bubble",
-            to: "/test2",
-          },
-          {
-            title: "Test2",
-            icon: "mdi-chart-bubble",
-            to: "/test2",
-          },
-        ],
-      },
-     
-
-      {
-        title: "Configurações",
-        icon: "mdi-cog",
-        items: [
-          {
-            title: "Usuários",
-            icon: "mdi-account-multiple",
-            to: "/Usuarios/usuarios",
-          },
-          {
-        title: "Meu Perfil",
-        icon: "mdi-account",
-        to: "/Usuarios/profile",
-      },
-        ],
-      },
-    ],
-    navLinks: [
-      { icon: "mdi-home", text: "Início", to: "/Home/home" },
-
-      {
-        text: "Parâmetros Cria Certo",
-        icon: "mdi-database",
-        to: "/Parametros/parametros",
-        subLinks: [
-          { text: "Add Driver", to: "/drivers/add" },
-          { text: "Add Driver", to: "/drivers/add" },
-        ],
-      },
-    ],
+    items: Menu,
   }),
 };
 </script>
@@ -154,7 +97,6 @@ export default {
   }
   .v-list {
     padding: 0px;
-    
   }
   .v-list-item {
     &__icon--text,
@@ -162,7 +104,6 @@ export default {
       justify-content: center;
       text-align: center;
       width: 20px;
-      
     }
 
     .v-list-item__icon {
