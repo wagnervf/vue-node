@@ -46,14 +46,14 @@ exports.loginUser = async (req, res) => {
 
     //
     if (!user || user == null) {
-    res.status(401).send({ error: 'Erro ao realiazr o Login! Verifque a sua conta' });
+    res.status(401).send({ error: 'Erro ao realizar o Login! Verifque a sua conta' });
     }
     //
     const token = await user.generateAuthToken();
     res.status(201).json({ message: 'Usuário(a) logado com sucesso!', user, token });
     //
   } catch (err) { 
-    res.status(401).send({ err: 'Erro ao realiazr o Login! Verifque a sua conta' });
+    res.status(401).send({ err: 'Erro ao realizar o Login! Verifque a sua conta' });
   //  res.status(400).json({ err: err });
   }
 

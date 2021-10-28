@@ -22,7 +22,7 @@
     </v-list> -->
     <v-spacer />
 
-    <v-list >
+    <v-list class="my-6">
       <v-list-item link>
           <v-list-item-icon> <v-app-bar-nav-icon @click.stop="mini = !mini"></v-app-bar-nav-icon></v-list-item-icon>
          
@@ -87,12 +87,12 @@ export default {
       {
         title: "Início",
         icon: "mdi-home",
-        to: "/dashboard/basic-dashboard",
+        to: "/Home/home",
       },
       {
         title: "Parâmetros Cria Certo",
         icon: "mdi-database",
-        to: "/Parametros/parametros-view",
+        to: "/Parametros/parametros",
       },
 
       {
@@ -104,13 +104,13 @@ export default {
       {
         title: "Perfil",
         icon: "mdi-account",
-        to: "/pages/profile",
+        to: "/Usuarios/profile",
       },
 
       {
         title: "Configurações",
         icon: "mdi-cog",
-        to: "/pages/Configuracoes/configuracoes",
+        to: "/Configuracoes/configuracoes",
       },
       {
         title: "Sair do Sistema",

@@ -1,4 +1,3 @@
-
 import swal from 'sweetalert';
 import Api from './Api';
 
@@ -10,6 +9,8 @@ export default {
   async loginUser(user) {
     try {
       const response = await Api().post('/login', user);
+     
+
       const { token } = response.data;
       localStorage.setItem('jwt', token);
 
@@ -20,7 +21,10 @@ export default {
           icon: 'success',
         });
       }
+
+
     } catch (error) {
+      console.log(error);
       swal({
         title: 'Oops!',
         text: 'Alguma coisa deu errado aqui!',

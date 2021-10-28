@@ -3,17 +3,19 @@
     app
     clipped-left
     clipped-right
-    max-height="40"
-    height="40"
-    color="teal"
+    max-height="60"
+    height="60"
+    color="teal lighten-1"
     dark
+    elevation-10
+    class="elevation-10"
   >
-    <v-toolbar-title class="align-center d-flex">
+    <v-toolbar-title class="align-center d-flex ">
       <span class="logo-icon">
         <v-icon>mdi-cogs</v-icon>
         Cria Certo
       </span>
-      <span  class="font-weight-bold text-md ml-2"> Manager </span>
+      <span  class="font-weight-bold text-md ml-2 "> Manager </span>
     </v-toolbar-title>
 
     <v-spacer />

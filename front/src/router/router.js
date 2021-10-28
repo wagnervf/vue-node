@@ -7,7 +7,7 @@ const routes = [
   {
     path: "/login",
     name: "login",
-    component: () => import("@/views/pages/Login"),
+    component: () => import("@/views/Login/Login.vue"),
   },
   {
     path: "/",
@@ -16,36 +16,41 @@ const routes = [
     children: [
       // Components
 
+      {
+        name: "Home",
+        path: "Home/home",
+        component: () => import("@/views/Home/Home.vue"),
+      },
       
 
       {
         name: "Usuarios",
         path: "Usuarios/Usuarios",
-        component: () => import("@/views/Usuarios/Usuarios"),
+        component: () => import("@/views/Usuarios/Usuarios.vue"),
       },
 
       {
         name: "Profile",
-        path: "pages/profile",
-        component: () => import("@/views/pages/Profile"),
+        path: "Usuarios/profile",
+        component: () => import("@/views/Usuarios/Profile.vue"),
       },
 
       {
         name: "TableSimple",
-        path: "Parametros/parametros-view",
-        component: () => import("@/views/Parametros/ParametrosView"),
+        path: "Parametros/parametros",
+        component: () => import("@/views/Parametros/Parametros.vue"),
       },
 
-      {
-        name: "Dashboard",
-        path: "dashboard/basic-dashboard",
-        component: () => import("@/views/dashboard/BasicDashboard"),
-      },
+      // {
+      //   name: "Dashboard",
+      //   path: "dashboard/basic-dashboard",
+      //   component: () => import("@/views/dashboard/BasicDashboard"),
+      // },
 
       {
         name: "Configuracoes",
-        path: "pages/Configuracoes/configuracoes",
-        component: () => import("@/views/pages/Configuracoes/Configuracoes"),
+        path: "Configuracoes/configuracoes",
+        component: () => import("@/views/Configuracoes/Configuracoes.vue"),
       }
     ],
   },

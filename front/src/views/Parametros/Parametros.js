@@ -1,34 +1,5 @@
-<template>
-  <v-card class="mx-auto col-12">
-    <v-card-title>
-      Lista de Parâmetros do Cria Certo
-      <v-spacer></v-spacer>
-      <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Buscar"
-        single-line
-        hide-details
-      ></v-text-field>
-    </v-card-title>
-    <v-data-table
-      :headers="headers"
-      :items="desserts"
-      :search="search"
-      class="elevation-1"
-    >
-      <template v-slot:item.actions="{ item }">
-        <v-btn text color="primary" @click="goToPage(item.link)">
-          Acessar
-          <v-icon right> mdi-launch </v-icon>
 
-        </v-btn>
-      </template>
-    </v-data-table>
-  </v-card>
-</template>
 
-<script>
 export default {
   data() {
     return {
@@ -56,12 +27,12 @@ export default {
           link: "/Usuarios/usuarios",
         },
         {
-          lista: "Dasboard",
+          lista: "Tipo de Gados",
           descricao: 262,
           link: "/dashboard/basic-dashboard",
         },
         {
-          lista: "Usuarios",
+          lista: "Vacinas",
           descricao: 305,
           link: "/Usuarios/usuarios",
         },
@@ -88,4 +59,3 @@ export default {
     },
   },
 };
-</script>

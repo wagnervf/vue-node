@@ -1,5 +1,12 @@
 <template>
-  <v-card class="pa-0 col-10 mx-auto">
+<v-container>
+  <v-breadcrumbs
+      :items="items"
+      divider="/"
+      
+      
+    ></v-breadcrumbs> 
+  <v-card class="pa-0 my-2 col-12 mx-auto">
     <v-card-title class="grey lighten-5 text-h5">
       Futura Lista de Usuários
     </v-card-title>
@@ -120,6 +127,7 @@
       </v-col>
     </v-row>
   </v-card>
+</v-container>
 </template>
 
 <script>
@@ -141,6 +149,23 @@
       users: [],
       search: null,
             caseSensitive: false,
+             items: [
+      {
+        text: "Dashboard",
+        disabled: false,
+        href: "breadcrumbs_dashboard",
+      },
+      {
+        text: "Link 1",
+        disabled: false,
+        href: "breadcrumbs_link_1",
+      },
+      {
+        text: "Link 2",
+        disabled: true,
+        href: "breadcrumbs_link_2",
+      },
+    ],
 
     }),
 

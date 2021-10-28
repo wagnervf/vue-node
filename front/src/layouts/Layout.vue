@@ -1,17 +1,16 @@
 <template>
   <v-app id="inspire">
-    <Header ></Header>
-    <Sidebar ></Sidebar>
-    <v-content>
-      <v-breadcrumbs
+    <Header></Header>
+    <Sidebar></Sidebar>
+    <v-content >
+      <!-- <v-breadcrumbs
       :items="items"
       divider="/"
       class="grey lighten-5"
       
-    ></v-breadcrumbs>
-      <v-container class="fill-height grey lighten-5" fluid>
-        <router-view />
-      </v-container>
+    ></v-breadcrumbs> -->
+
+      <router-view />
     </v-content>
   </v-app>
 </template>
@@ -27,40 +26,39 @@ export default {
   components: {
     Header,
     Sidebar,
-   
   },
 
   props: {
-    source: String
+    source: String,
   },
   data: () => ({
     expandOnHover: false,
-     items: [
-        {
-          text: 'Dashboard',
-          disabled: false,
-          href: 'breadcrumbs_dashboard',
-        },
-        {
-          text: 'Link 1',
-          disabled: false,
-          href: 'breadcrumbs_link_1',
-        },
-        {
-          text: 'Link 2',
-          disabled: true,
-          href: 'breadcrumbs_link_2',
-        },
-      ],
+    items: [
+      {
+        text: "Dashboard",
+        disabled: false,
+        href: "breadcrumbs_dashboard",
+      },
+      {
+        text: "Link 1",
+        disabled: false,
+        href: "breadcrumbs_link_1",
+      },
+      {
+        text: "Link 2",
+        disabled: true,
+        href: "breadcrumbs_link_2",
+      },
+    ],
   }),
   computed: {
-    ...mapState(["Customizer_drawer"])
+    ...mapState(["Customizer_drawer"]),
   },
 
   methods: {
     ...mapMutations({
-      setCustomizerDrawer: "SET_CUSTOMIZER_DRAWER"
-    })
-  }
+      setCustomizerDrawer: "SET_CUSTOMIZER_DRAWER",
+    }),
+  },
 };
 </script>

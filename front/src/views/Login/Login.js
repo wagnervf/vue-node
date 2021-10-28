@@ -9,6 +9,7 @@ export default {
       props: {
         source: String,
       },
+      step: 1,
       valid: true,
       passRules: [
         v => !!v || 'A senha é obrigatória',
@@ -36,15 +37,15 @@ export default {
     async submitLoginUser() {
       if(this.$refs.form.validate()){
         try {
-          this.isSubmitted = true;
-  
+          this.isSubmitted = true; 
          
           await LoginService.loginUser(this.loginForm);
           this.$router.push('/dashboard/basic-dashboard');
         } catch (error) {
+          console.log(error);
           swal({
-            title: 'Senha Incorreta!',
-            text: 'Digite a senha cadastrada!',
+            title: 'O endereço de email ou a senha que você inseriu não é válido',
+            text: 'Por favor, tente novamente.',
             icon: 'error',
           });
         }
