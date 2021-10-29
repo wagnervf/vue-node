@@ -2,33 +2,21 @@
   <div>
     <div>
       <v-breadcrumbs :items="items" divider="-"></v-breadcrumbs>
+      <div>{{ currentRouteName }}</div>
+
+      {{ this.$router.history.current.path }}
     </div>
 
     <v-data-table
       :headers="headers"
       :items="desserts"
       sort-by="ativo"
-      class="elevation-4 col-12"
+      class="elevation-1 col-12"
       :search="search"
     >
-      <template v-slot:header.descricao="{ header }">
-    <span class="text-h6">  {{ header.text }}</span>
-      </template>
-
-<template v-slot:header.ativo="{ header }">
-    <span class="text-h6">  {{ header.text }}</span>
-      </template>
-      <template v-slot:header.actions="{ header }">
-    <span class="text-h6">  {{ header.text }}</span>
-      </template>
-      <template v-slot:item.ativo="{ item }">
-        <v-chip :color="getColor(item.ativo)" dark>
-          {{ item.ativo }}
-        </v-chip>
-      </template>
       <template v-slot:top>
         <div class="mb-4">
-          <v-row class="ma-1">
+          <v-row class="ma-0">
             <v-col cols="12" class="grey lighten-3 pa-3">
               <h2>Tipos de Simulações</h2>
             </v-col>
@@ -117,15 +105,28 @@
         </div>
       </template>
 
-      <template v-slot:item.actions="{ item }">
-        <v-btn fab dark small color="primary mr-1" @click="editItem(item)">
-          <v-icon> mdi-pencil </v-icon>
-        </v-btn>
-        <v-btn fab dark small color="red mr-1" @click="deleteItem(item)">
-          <v-icon> mdi-delete </v-icon>
-        </v-btn>
+      <template v-slot:[`item.descricao`]="{ item }">
+        <span class="text-subtitle-2"> {{ item.descricao }}</span>
+      </template>     
+      <template v-slot:[`item.ativo`]="{ item }">
+        <v-switch v-model="item.ativo" disabled></v-switch>
+      </template>
 
+      <template v-slot:[`header.actions`]="{ header }">
+        <div class="d-flex justify-end mr-8">
+          <span class="text-subtitle-2"> {{ header.text }}</span>
+        </div>
+      </template>
 
+      <template v-slot:[`item.actions`]="{ item }">
+        <div class="d-flex justify-end mr-3">
+          <v-btn fab text small color="primary mr-1" @click="editItem(item)">
+            <v-icon> mdi-pencil </v-icon>
+          </v-btn>
+          <v-btn fab text small color="red mr-1" @click="deleteItem(item)">
+            <v-icon> mdi-delete </v-icon>
+          </v-btn>
+        </div>
       </template>
       <template v-slot:no-data>
         <v-btn color="primary" @click="initialize"> Reset </v-btn>
@@ -195,6 +196,9 @@ export default {
     formTitle() {
       return this.editedIndex === -1 ? "Novo Item" : "Editar Item";
     },
+    currentRouteName() {
+      return this.$route.name;
+    },
   },
 
   watch: {
@@ -234,7 +238,6 @@ export default {
         console.log(resposta);
         if (resposta.status == 201) {
           this.textSnackbar = resposta.data.message;
-
           return;
         }
 
@@ -295,3 +298,19 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.v-data-table__wrapper {
+  border: thin solid rgba(0, 0, 0, 0.12);
+}
+.theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > thead
+  > tr:last-child
+  > th {
+  font-size: 16px;
+  color: rgb(151, 151, 151);
+}
+
+</style>
