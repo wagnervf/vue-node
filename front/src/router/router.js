@@ -29,6 +29,13 @@ const routes = [
         component: () => import("@/views/Usuarios/Usuarios.vue"),
       },
 
+      
+      {
+        name: "Novo Usuario",
+        path: "Usuarios/Add",
+        component: () => import("@/views/Usuarios/Add.vue"),
+      },
+
       {
         name: "Profile",
         path: "Usuarios/profile",
@@ -40,12 +47,32 @@ const routes = [
         path: "Parametros/parametros",
         component: () => import("@/views/Parametros/Parametros.vue"),
       },
-
-      // {
-      //   name: "Dashboard",
-      //   path: "dashboard/basic-dashboard",
-      //   component: () => import("@/views/dashboard/BasicDashboard"),
-      // },
+      {
+        name: "Sobre",
+        path: "Sobre/sobre",
+        component: () => import("@/views/Sobre/Sobre.vue"),
+      },
+     
+      {
+        name: "Basico",
+        path: "Basico/index",
+        component: () => import("@/views/Basico/Index.vue"),
+      },
+      {
+        name: "Dados Rebanho",
+        path: "Rebanho/index",
+        component: () => import("@/views/Rebanho/Index.vue"),
+      },
+      {
+        name: "Aquisicao Touro",
+        path: "aquisicaotouro/index",
+        component: () => import("@/views/AquisicaoTouro/Index.vue"),
+      },
+      {
+        name: "Manutencao Touro",
+        path: "manutencaotouro/index",
+        component: () => import("@/views/ManutencaoTouro/Index.vue"),
+      },
 
       {
         name: "Configuracoes",

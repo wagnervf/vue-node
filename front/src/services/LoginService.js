@@ -9,11 +9,25 @@ export default {
   async loginUser(user) {
     try {
       const response = await Api().post('/login', user);
-     
+
 
       const { token } = response.data;
+
+      const userLogged = {
+        'createdAt': (response.data.user.createdAt),
+        'name': (response.data.user.name),
+        'email': (response.data.user.email),
+      };
+
+     // localStorage.setItem('users',JSON.stringify(response.data.user))
+
+      console.log(response.data);
+      localStorage.setItem('userLogged', JSON.stringify(userLogged));
       localStorage.setItem('jwt', token);
 
+
+      //localStorage.getItem('YourItem')
+      //localStorage.removeItem('YourItem')
       if (token) {
         swal({
           title: 'Sucesso!',

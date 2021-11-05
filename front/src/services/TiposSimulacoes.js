@@ -7,7 +7,7 @@ export default {
       const response = await Api().get("/simulacao/find");
 
       if (response) {
-        console.log(response.data);
+      //  console.log(response.data);
       }
 
       return response.data;
@@ -55,10 +55,9 @@ export default {
   //     });
   // },
 
-   async setTiposSimulacoes(dados) {
+   async saveTiposSimulacoes(dados) {
     try {
       const response = await Api().post("/simulacao/save", dados);
-
       if (response) {
         console.log(response.data);
       }
@@ -72,5 +71,22 @@ export default {
       });
      // this.$router.push("/");
     }
+  },
+
+  //TODO: fAZERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+
+  updateTiposSimulacoes: (id, dados) => {
+    return Api().patch("/simulacao/update/".concat(id), dados)
+      .then(function(response) {
+        return response;
+      })
+      .catch(function(error) {
+        swal({
+          title: "Erro!",
+          text: "A simulação não foi atualizada!",
+          icon: "error",
+        });
+        return error.response;
+      });
   },
 };

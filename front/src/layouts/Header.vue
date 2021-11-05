@@ -6,8 +6,9 @@
     max-height="60"
     height="60"
     color="teal lighten-1"
+    class="elevation-1"
     dark
-     
+    
   >
     <v-toolbar-title class="align-center d-flex ">
       <span class="logo-icon">

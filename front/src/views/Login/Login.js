@@ -40,7 +40,7 @@ export default {
           this.isSubmitted = true; 
          
           await LoginService.loginUser(this.loginForm);
-          this.$router.push('/dashboard/basic-dashboard');
+          this.$router.push('/Home/home');
         } catch (error) {
           console.log(error);
           swal({

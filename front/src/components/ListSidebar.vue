@@ -2,9 +2,10 @@
   <div>
     <v-list dense nav>
       <template v-for="item in items">
+            
         <v-list-group
           :key="item.title"
-          v-if="item.items !== undefined"
+          v-if="item.children !== undefined"
           :active-class="`teal--text`"
           v-model="item.active"
           no-action
@@ -12,6 +13,7 @@
           dense
           class="py-1"
         >
+        
           <template v-slot:activator>
             <v-list-item-icon left>
               <v-icon>{{ item.icon }}</v-icon>
@@ -23,7 +25,7 @@
           </template>
 
           <v-list-item
-            v-for="subItem in item.items"
+            v-for="subItem in item.children"
             :key="subItem.title"
             :active-class="`teal--text`"
             class="pl-8"
@@ -39,6 +41,7 @@
               <v-list-item-title v-text="subItem.title"></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+          
         </v-list-group>
 
         <v-list-item
@@ -50,6 +53,7 @@
           :active-class="`teal--text`"
           dense
         >
+        
           <v-list-item-icon left>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -60,15 +64,28 @@
       </template>
     </v-list>
 
-    <v-list nav dense class="mt-12">
+
+    <v-list nav dense class="mt-12 pt-12">
       <v-divider></v-divider>
+
       <v-list-item to="/login" nav dense>
+        <v-list-item-avatar>
+          <v-icon>mdi-information</v-icon>
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title>Sobre</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      
+    
+      <v-list-item to="/Sobre/sobre" nav dense>
         <v-list-item-avatar>
           <v-icon>mdi-logout</v-icon>
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>Sair do Sistema</v-list-item-title>
+          <v-list-item-title>Sair</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>

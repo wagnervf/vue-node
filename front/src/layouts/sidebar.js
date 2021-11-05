@@ -16,7 +16,20 @@ export default {
   data: () => ({
     drawer: true,
     mini: false,
+    user: {
+      name: "",
+    email: ""
+
+    }
   }),
+
+  mounted() {
+  this.getUserLocalStorage();
+  // var u =  JSON.parse(localStorage.getItem("userLogged"))
+   
+   
+  },
+
   computed: {
     ...mapState(["SidebarColor", "SidebarBg"]),
     Sidebar_drawer: {
@@ -27,6 +40,7 @@ export default {
         this.$store.commit("SET_SIDEBAR_DRAWER", val);
       },
     },
+    
   },
   watch: {
     "$vuetify.breakpoint.smAndDown"(val) {
@@ -34,6 +48,17 @@ export default {
     },
   },
 
-  methods: {},
+  methods: {
+
+    getUserLocalStorage() {
+      let user = JSON.parse(localStorage.getItem("userLogged"));
+      console.log(user);
+
+      if (user) {
+        this.user.name = user.name;
+        this.user.email = user.email;
+      }
+    }
+  },
 };
 

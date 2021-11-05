@@ -32,3 +32,33 @@ sudo systemctl restart mongod
 
 
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTE3ZDYxM2E4MjljYjZhNTJkNDBlNjAiLCJuYW1lIjoiU3IuIFRlc3RlIiwiZW1haWwiOiJ0ZXN0ZUBnbWFpbC5jb20iLCJpYXQiOjE2Mjg5NTIwODR9.f_Oluy7CsCYVc4-xh2ibZXt8pe5-zQveqRQ2-syf4YM
+
+
+
+
+
+
+
+address:
+city: "Gwenborough"
+geo: {lat: '-37.3159', lng: '81.1496'}
+street: "Kulas Light"
+suite: "Apt. 556"
+zipcode: "92998-3874"
+[[Prototype]]: Object
+company:
+bs: "harness real-time e-markets"
+catchPhrase: "Multi-layered client-server neural-net"
+name: "Romaguera-Crona"
+[[Prototype]]: Object
+email: "Sincere@april.biz"
+id: 1
+name: "Leanne Graham"
+phone: "1-770-736-8031 x56442"
+username: "Bret"
+website: "hildegard.org"
+
+https://www.bezkoder.com/node-express-vue-jwt-auth/
+https://www.bezkoder.com/node-js-jwt-authentication-mysql/
+https://dev.to/kevin_odongo35/mongodb-express-vue-and-node-2cml 
+https://www.bezkoder.com/vue-node-express-mongodb-mevn-crud/

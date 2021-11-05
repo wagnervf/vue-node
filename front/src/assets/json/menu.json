@@ -1,48 +1,53 @@
-
-      [
-        {
-        "title": "Início",
-        "icon": "mdi-home",
-        "to": "/Home/home"
-      },
-       
+[
+  {
+    "id": 1,
+    "title": "Início",
+    "icon": "mdi-home",
+    "to": "/Home/home"
+  },
+  {
+    "id": 2,
+    "title": "Parâmetros Cria Certo",
+    "icon": "mdi-database",
+    "children": [
       {
-        "title": "Parâmetros Cria Certo",
-        "icon": "mdi-database",
-        "items": [
-          {
-            "title": "Simulações",
-            "icon": "mdi-note-text",
-            "to": "/Configuracoes/configuracoes"
-          },
-          {
-            "title": "Vários",
-            "icon": "mdi-view-module",
-            "to": "/Parametros/parametros"
-          },
-          {
-            "title": "Test2",
-            "icon": "mdi-chart-bubble",
-            "to": "/test2"
-          }
-        ]
+        "id": 21,
+        "title": "Simulações",
+        "icon": "mdi-note-text",
+        "to": "/Configuracoes/configuracoes"
       },
-     
-
       {
-        "title": "Configurações",
-        "icon": "mdi-cog",
-        "items": [
-          {
-            "title": "Usuários",
-            "icon": "mdi-account-multiple",
-            "to": "/Usuarios/usuarios"
-          },
-          {
+        "id": 22,
+        "title": "Vários",
+        "icon": "mdi-view-module",
+        "to": "/Parametros/parametros"
+      },
+      {
+        "id": 23,
+        "title": "Test2",
+        "icon": "mdi-chart-bubble",
+        "to": "/test2"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Configurações",
+    "icon": "mdi-cog",
+    "children": [
+      {
+        "id": 31,
+        "title": "Gerenciar Usuários",
+        "icon": "mdi-account-multiple",
+        "to": "/Usuarios/usuarios"
+      },
+      {
+        "id": 32,
         "title": "Meu Perfil",
         "icon": "mdi-account",
         "to": "/Usuarios/profile"
       }
-        ]
-      }
     ]
+  }
+  
+]

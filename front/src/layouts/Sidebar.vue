@@ -14,8 +14,8 @@
       <v-app-bar-nav-icon @click.stop="mini = !mini"></v-app-bar-nav-icon>
 
       <v-list-item-content class="mx-0">
-        <v-list-item-title class="text-h6"> John Leider </v-list-item-title>
-        <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
+        <v-list-item-title class="text-h6"> {{user.name}} </v-list-item-title>
+        <v-list-item-subtitle>{{user.email}}</v-list-item-subtitle>
       </v-list-item-content>
     </v-sheet>
     
