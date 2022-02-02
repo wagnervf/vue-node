@@ -1,0 +1,66 @@
+# Funcionando OK
+# Dentro da Pasta /home/wagner/Develop/projects/vue-node/backend
+# Rodar -->    docker-compose -f mongodb.docker-compose.yml up -d
+
+# Após as imagens serem criadas e iniciadas, entrar dentro do container do node
+# docker exec -it e5c bash
+# RUN npm install
+# RUN npm install -g nodemon
+# ** Melhorar o node.dockerfile para instalar as dependncias quando criar a imagem.
+
+# Comando para acionar o servidor node
+# docker exec -it e5c nodemon /home/node/app/bin
+
+
+
+version: '3'
+
+services:
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express-criacerto
+    ports:
+      - 8081:8081
+      - 5050:8081
+    environment:
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+    links:
+      - mongo
+    networks:
+      - rede-criacerto
+
+  mongo:
+    image: mongo
+    container_name: mongo-criacerto
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - "27017:27017"
+    volumes:
+      - /home/wagner/Develop/projects/vue-node/backend/volumes:/data/db
+    networks:
+      - rede-criacerto
+  
+  node:
+    build:
+      dockerfile: node.dockerfile
+      context: .
+    image: node:16.13-slim
+    container_name: cont_node
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/home/node/app
+    links: 
+      - mongo
+    networks:
+      - rede-criacerto
+
+networks: 
+    rede-criacerto:
+      driver: bridge

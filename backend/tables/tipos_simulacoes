@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "617af0675aeb5dc421fefad6"
+  },
+  "descricao": "Monta Natural",
+  "ativo": false
+},{
+  "_id": {
+    "$oid": "617af1353406f20eaa6ef96b"
+  },
+  "descricao": "IATF + RT",
+  "ativo": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617af13e3406f20eaa6ef96f"
+  },
+  "descricao": "2 IATF + RT",
+  "ativo": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617af1473406f20eaa6ef971"
+  },
+  "descricao": "3 IATF",
+  "ativo": true,
+  "__v": 0
+}]

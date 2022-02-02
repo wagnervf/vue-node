@@ -1,0 +1,28 @@
+version: '3'
+services:
+  mongodb:
+    build:
+      dockerfile: node.dockerfile
+      context: .
+    networks: rede-criacerto
+    container_name: cont_mongodb
+    restart: always
+
+  node:
+    build:
+      dockerfile: node.dockerfile
+      context: .
+    container_name: cont_node
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/home/node/app
+    networks:
+      - rede-criacerto
+    restart: always
+    depends_on:
+      - mongodb
+
+networks:
+  production-network:
+    drive: bridge
